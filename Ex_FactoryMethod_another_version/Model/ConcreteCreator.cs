@@ -1,5 +1,9 @@
 class ConcreteCreator : Creator
 {
+    public override IProduct FactoryMethod()
+    {
+        return new Computer();
+    }
     public override IProduct FactoryMethod(string type)
     {
         switch (type)

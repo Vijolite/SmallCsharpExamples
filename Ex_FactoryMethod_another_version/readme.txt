@@ -1,0 +1,1 @@
+Example of Factory method with one FactoryCreator class implementation general for all types of Product 
