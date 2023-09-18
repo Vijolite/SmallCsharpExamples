@@ -1,0 +1,11 @@
+// {
+//     "code-runner.executorMap": {
+//         "python": "set PYTHONIOENCODING=utf8 && py -u"
+//     }
+//     {
+//         "code-runner.runInTerminal": true
+//     }
+// }
+{
+    "files.encoding": "utf8"
+}
