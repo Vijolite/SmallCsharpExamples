@@ -26,6 +26,9 @@ namespace Ex_FactoryMethod
             var c2 = new CDPlayerCreator();
             productList.Add(c2.FactoryMethod("CD Player Best Model", 500, 550));
 
+            var c3 = new Computer("Another computer", 700, 800);
+            productList.Add(c3);
+
             foreach (Product pr in productList)
             {
                 Console.WriteLine("Object from class {0};\n" +
