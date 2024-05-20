@@ -1,0 +1,15 @@
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.csproj.AssemblyReference.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.AssemblyInfoInputs.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.AssemblyInfo.cs
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.csproj.CoreCompileInputs.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\bin\Debug\net6.0\Udemi_DiceRollGame_OOP.exe
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\bin\Debug\net6.0\Udemi_DiceRollGame_OOP.deps.json
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\bin\Debug\net6.0\Udemi_DiceRollGame_OOP.runtimeconfig.json
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\bin\Debug\net6.0\Udemi_DiceRollGame_OOP.dll
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\bin\Debug\net6.0\Udemi_DiceRollGame_OOP.pdb
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.dll
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\refint\Udemi_DiceRollGame_OOP.dll
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.pdb
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\Udemi_DiceRollGame_OOP.genruntimeconfig.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_DiceRollGame_OOP\obj\Debug\net6.0\ref\Udemi_DiceRollGame_OOP.dll
