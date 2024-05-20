@@ -8,38 +8,32 @@ namespace Udemi_DiceRollGame_OOP.Model
 {
     public class Game
     {
-        public static int NumberOfAttempts = 0;
-        public static bool ValueIsGuessed = false;
-        public Dice Dice = new Dice();
+        private const int MaxTriesCount = 3;
+        private static int _usedNumberOfAttempts = 0;
+        private static bool _valueIsGuessed = false;
+        private Dice dice = new Dice();
 
         public Game()
         {
-            Dice.Roll();
-        }
-
-        public int TryGetNumberFormUser()
-        {
-            UserOutput.Output("Enter your guess");
-            int guessInt = UserInput.TryGetNumberFormUser();
-            return guessInt;
+            dice.Roll();
         }
 
         public void WinOrLose()
         {
-            while (!ValueIsGuessed && NumberOfAttempts<3)
+            while (!_valueIsGuessed && _usedNumberOfAttempts < MaxTriesCount)
             {
-                int guess = TryGetNumberFormUser();
-                if (guess == Dice.Value)
+                int guess = UserInput.TryGetNumberFormUser("Enter your guess");
+                if (guess == dice.Value)
                 {
-                    ValueIsGuessed = true;
+                    _valueIsGuessed = true;
                 }
                 else
                 {
                     UserOutput.Output("Wrong number!");
-                    NumberOfAttempts++;
+                    _usedNumberOfAttempts++;
                 }
             }
-            if (ValueIsGuessed)
+            if (_valueIsGuessed)
             {
                 UserOutput.Output("You won!");
             }

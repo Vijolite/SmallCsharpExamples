@@ -10,8 +10,9 @@ namespace Udemi_DiceRollGame_OOP.Model
             return x;
         }
 
-        public static int TryGetNumberFormUser()
+        public static int TryGetNumberFormUser(string text)
         {
+            UserOutput.Output(text);
             bool correctInt;
             int inputInt = 0;
             do
