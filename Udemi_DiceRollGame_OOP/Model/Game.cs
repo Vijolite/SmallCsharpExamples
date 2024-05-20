@@ -35,6 +35,7 @@ namespace Udemi_DiceRollGame_OOP.Model
                 }
                 else
                 {
+                    UserOutput.Output("Wrong number!");
                     NumberOfAttempts++;
                 }
             }
