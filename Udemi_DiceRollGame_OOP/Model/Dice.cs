@@ -1,6 +1,7 @@
 public class Dice
 {
     private readonly Random _rnd;
+    private const int SidesCount = 6;
     public int Value { get; private set; }
 
     public Dice()
@@ -10,6 +11,6 @@ public class Dice
 
     public void Roll()
     {
-        Value = _rnd.Next(1, 7);  //from 1 till 6
+        Value = _rnd.Next(1, SidesCount+1);  //from 1 till 6
     }
 }
