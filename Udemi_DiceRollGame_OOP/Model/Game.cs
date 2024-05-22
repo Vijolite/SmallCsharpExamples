@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Udemi_DiceRollGame_OOP.UserInterface;
 
 namespace Udemi_DiceRollGame_OOP.Model
 {
@@ -18,14 +14,14 @@ namespace Udemi_DiceRollGame_OOP.Model
             dice.Roll();
         }
 
-        public void WinOrLose()
+        public GameResult Play()
         {
             while (!_valueIsGuessed && _usedNumberOfAttempts < MaxTriesCount)
             {
                 int guess = UserInput.TryGetNumberFormUser("Enter your guess");
                 if (guess == dice.Value)
                 {
-                    _valueIsGuessed = true;
+                    return GameResult.Won;
                 }
                 else
                 {
@@ -33,14 +29,13 @@ namespace Udemi_DiceRollGame_OOP.Model
                     _usedNumberOfAttempts++;
                 }
             }
-            if (_valueIsGuessed)
-            {
-                UserOutput.Output("You won!");
-            }
-            else
-            {
-                UserOutput.Output("You lost!");
-            }
+            return GameResult.Lost;
+        }
+
+        public void PrintResult (GameResult result)
+        {
+            var message = result.Equals(GameResult.Lost) ? "You lost :(" : "You won!";
+            UserOutput.Output(message);
         }
     }
 }

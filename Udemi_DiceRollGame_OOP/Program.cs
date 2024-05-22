@@ -6,9 +6,9 @@ namespace Udemi_DiceRollGame_OOP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
             var game = new Game();
-            game.WinOrLose();
+            var result = game.Play();
+            game.PrintResult(result);
             Console.ReadLine();
         }
     }

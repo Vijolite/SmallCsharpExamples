@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Udemi_DiceRollGame_OOP.Model
+namespace Udemi_DiceRollGame_OOP.UserInterface
 {
     public static class UserOutput
     {
