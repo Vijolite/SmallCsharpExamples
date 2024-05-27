@@ -1,0 +1,15 @@
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\bin\Debug\net6.0\Udemi_CookieCookbook.exe
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\bin\Debug\net6.0\Udemi_CookieCookbook.deps.json
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\bin\Debug\net6.0\Udemi_CookieCookbook.runtimeconfig.json
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\bin\Debug\net6.0\Udemi_CookieCookbook.dll
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\bin\Debug\net6.0\Udemi_CookieCookbook.pdb
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.csproj.AssemblyReference.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.AssemblyInfoInputs.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.AssemblyInfo.cs
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.csproj.CoreCompileInputs.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.dll
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\refint\Udemi_CookieCookbook.dll
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.pdb
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\Udemi_CookieCookbook.genruntimeconfig.cache
+C:\PROGRAMMING\C_Sharp_TechReturners\SmallCsharpExamples\Udemi_CookieCookbook\obj\Debug\net6.0\ref\Udemi_CookieCookbook.dll

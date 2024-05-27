@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ex_FactoryMethod", "Ex_Fact
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_DiceRollGame_OOP", "Udemi_DiceRollGame_OOP\Udemi_DiceRollGame_OOP.csproj", "{649A2ABD-C911-4D4D-B5B2-FD62146766AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemi_CookieCookbook", "Udemi_CookieCookbook\Udemi_CookieCookbook.csproj", "{A71C1F72-6EB5-42FC-8468-DBBDACE3A8D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{649A2ABD-C911-4D4D-B5B2-FD62146766AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{649A2ABD-C911-4D4D-B5B2-FD62146766AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{649A2ABD-C911-4D4D-B5B2-FD62146766AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71C1F72-6EB5-42FC-8468-DBBDACE3A8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71C1F72-6EB5-42FC-8468-DBBDACE3A8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71C1F72-6EB5-42FC-8468-DBBDACE3A8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71C1F72-6EB5-42FC-8468-DBBDACE3A8D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
