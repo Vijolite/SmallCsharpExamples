@@ -10,6 +10,11 @@ namespace Udemi_CookieCookbook.Model
     {
         public List<Recipe> Recipes { get; set; } = new List<Recipe>();
 
+        public RecipeStorage (List<Recipe> recipes)
+        {
+            Recipes = recipes;
+        }
+
         public void Print()
         {
             if (Recipes.Count > 0)
@@ -23,6 +28,7 @@ namespace Udemi_CookieCookbook.Model
                     i++;
                 }
             }
+            Console.WriteLine($"---------------");
         }
     }
 }

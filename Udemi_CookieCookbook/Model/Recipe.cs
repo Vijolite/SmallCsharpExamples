@@ -33,6 +33,11 @@ namespace Udemi_CookieCookbook.Model
         {
             Ingridients.Add(ingridient);
         }
+
+        public List<int> IdList()
+        {
+            return Ingridients.Select(i => i.Id).ToList();
+        }
     }
 
 }
