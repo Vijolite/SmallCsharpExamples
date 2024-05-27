@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Udemi_CookieCookbook.Model;
-using Udemi_CookieCookbook.WorkWithFiles;
+﻿using Udemi_CookieCookbook.WorkWithFiles;
 
 namespace Udemi_CookieCookbook.Model
 {
@@ -13,7 +7,7 @@ namespace Udemi_CookieCookbook.Model
         private const string FileName = "recipes";
         private const FileFormat CurrentFileFormat = FileFormat.Json; //could be txt or json
 
-        IngridientStorage _ingStorige = new IngridientStorage();
+        IngridientStorage _ingridientStorige;
         IOperatingFile _file;
         string _fileName;
 
@@ -21,6 +15,7 @@ namespace Udemi_CookieCookbook.Model
         {
             _fileName = CurrentFileFormat == FileFormat.Txt ? $"{FileName}.txt" : $"{FileName}.json";
             _file = CurrentFileFormat == FileFormat.Txt ? new TextFile(_fileName) : new JsonFile(_fileName);
+            _ingridientStorige = new IngridientStorage();
         }
 
         public void Run()
@@ -37,16 +32,16 @@ namespace Udemi_CookieCookbook.Model
         {
             if (File.Exists(_fileName))
             {
-                var recipeStorage = _file.ReadAll(_fileName, _ingStorige);
+                var recipeStorage = _file.ReadAll(_fileName, _ingridientStorige);
                 recipeStorage.Print();
             }
         }
 
         public void InputNewRecipe()
         {
-            _ingStorige.Print();
+            _ingridientStorige.Print();
             Console.WriteLine("Create a new cookie recipe!");
-            var recipe = User.InputListIngridients(_ingStorige);
+            var recipe = User.InputListIngridients(_ingridientStorige);
 
             if (recipe == null)
             {
