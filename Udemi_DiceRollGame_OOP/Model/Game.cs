@@ -7,11 +7,12 @@ namespace Udemi_DiceRollGame_OOP.Model
         private const int MaxTriesCount = 3;
         private static int _usedNumberOfAttempts = 0;
         private static bool _valueIsGuessed = false;
-        private Dice dice = new Dice();
+        private Dice _dice;
 
-        public Game()
+        public Game(Dice dice)
         {
-            dice.Roll();
+            _dice = dice;
+            _dice.Roll();
         }
 
         public GameResult Play()
@@ -19,7 +20,7 @@ namespace Udemi_DiceRollGame_OOP.Model
             while (!_valueIsGuessed && _usedNumberOfAttempts < MaxTriesCount)
             {
                 int guess = UserInput.TryGetNumberFormUser("Enter your guess");
-                if (guess == dice.Value)
+                if (guess == _dice.Value)
                 {
                     return GameResult.Won;
                 }

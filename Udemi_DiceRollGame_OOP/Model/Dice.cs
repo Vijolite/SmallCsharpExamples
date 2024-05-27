@@ -4,9 +4,9 @@ public class Dice
     private const int SidesCount = 6;
     public int Value { get; private set; }
 
-    public Dice()
+    public Dice(Random rnd)
     {
-        _rnd = new Random();
+        _rnd = rnd;
     }
 
     public void Roll()

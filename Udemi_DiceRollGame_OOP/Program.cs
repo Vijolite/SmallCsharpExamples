@@ -6,7 +6,9 @@ namespace Udemi_DiceRollGame_OOP
     {
         static void Main(string[] args)
         {
-            var game = new Game();
+            var rnd = new Random();
+            var dice = new Dice(rnd);
+            var game = new Game(dice);
             var result = game.Play();
             game.PrintResult(result);
             Console.ReadLine();
