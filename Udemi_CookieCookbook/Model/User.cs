@@ -20,11 +20,14 @@ namespace Udemi_CookieCookbook.Model
             {
                 Console.WriteLine("Input Id of ingriedient you want to add or anything else to finish");
                 string inputStr = Console.ReadLine();
-                int inputInt = 0;
+                int inputInt;
                 if (int.TryParse(inputStr, out inputInt))
                 {
                     var ingriedient = storage.FindIngridient(inputInt);
-                    recipe.AddIngridient(ingriedient);
+                    if (ingriedient != null)
+                        recipe.AddIngridient(ingriedient);
+                    else
+                        correctInput = false;
                 }
                 else
                 {
