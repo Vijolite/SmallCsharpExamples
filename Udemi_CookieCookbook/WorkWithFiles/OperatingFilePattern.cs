@@ -2,7 +2,7 @@
 
 namespace Udemi_CookieCookbook.WorkWithFiles
 {
-    public abstract class OperatingFilePattern
+    public abstract class OperatingFilePattern : IOperatingFile
     {
         private string _fileName;
         private FileFormat _fileFormat;

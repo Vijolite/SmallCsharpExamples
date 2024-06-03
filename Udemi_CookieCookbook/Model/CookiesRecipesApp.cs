@@ -5,10 +5,10 @@ namespace Udemi_CookieCookbook.Model
     public class CookiesRecipesApp
     {
         private IIngridientStorage _ingridientStorige;
-        private OperatingFilePattern _file;
+        private IOperatingFile _file;
         User _user = new();
 
-        public CookiesRecipesApp(IIngridientStorage ingriedientStorage, OperatingFilePattern file)
+        public CookiesRecipesApp(IIngridientStorage ingriedientStorage, IOperatingFile file)
         {
             _ingridientStorige = ingriedientStorage;
             _file = file;
