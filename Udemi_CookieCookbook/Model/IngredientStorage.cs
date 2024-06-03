@@ -1,13 +1,13 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Udemi_CookieCookbook.Model
+﻿namespace Udemi_CookieCookbook.Model
 {
-    public class IngridientStorage
+    public interface IIngridientStorage
+    {
+        public List<Ingridient> Ingridients { get; set; }
+        public void Print();
+        public Ingridient FindIngridient(int id);
+    }
+
+    public class IngridientStorage : IIngridientStorage
     {
         public List<Ingridient> Ingridients { get; set; } = new List<Ingridient>();
 

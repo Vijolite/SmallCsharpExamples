@@ -4,18 +4,14 @@ namespace Udemi_CookieCookbook.Model
 {
     public class CookiesRecipesApp
     {
-        private const string FileName = "recipes";
-        private const FileFormat CurrentFileFormat = FileFormat.Json; //could be txt or json
+        private IIngridientStorage _ingridientStorige;
+        private IOperatingFile _file;
+        User _user = new();
 
-        IngridientStorage _ingridientStorige;
-        IOperatingFile _file;
-        string _fileName;
-
-        public CookiesRecipesApp()
+        public CookiesRecipesApp(IIngridientStorage ingriedientStorage, IOperatingFile file)
         {
-            _fileName = CurrentFileFormat == FileFormat.Txt ? $"{FileName}.txt" : $"{FileName}.json";
-            _file = CurrentFileFormat == FileFormat.Txt ? new TextFile(_fileName) : new JsonFile(_fileName);
-            _ingridientStorige = new IngridientStorage();
+            _ingridientStorige = ingriedientStorage;
+            _file = file;
         }
 
         public void Run()
@@ -24,15 +20,14 @@ namespace Udemi_CookieCookbook.Model
 
             InputNewRecipe();
 
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
+            _user.Exit();
         }
 
         public void PrintAllSavedRecipes()
         {
-            if (File.Exists(_fileName))
+            if (_file.Exist())
             {
-                var recipeStorage = _file.ReadAll(_fileName, _ingridientStorige);
+                var recipeStorage = _file.ReadAll(_ingridientStorige);
                 recipeStorage.Print();
             }
         }
@@ -41,7 +36,7 @@ namespace Udemi_CookieCookbook.Model
         {
             _ingridientStorige.Print();
             Console.WriteLine("Create a new cookie recipe!");
-            var recipe = User.InputListIngridients(_ingridientStorige);
+            var recipe = _user.InputListIngridients(_ingridientStorige);
 
             if (recipe == null)
             {

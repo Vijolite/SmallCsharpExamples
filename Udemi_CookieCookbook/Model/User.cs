@@ -2,15 +2,21 @@
 
 namespace Udemi_CookieCookbook.Model
 {
-    public static class User
+    public class User
     {
-        public static string Input()
+        public string Input()
         {
             string x = Console.ReadLine();
             return x;
         }
 
-        public static Recipe? InputListIngridients(IngridientStorage storage)
+        public void Exit()
+        {
+            Console.WriteLine("Press any key to exit");
+            Console.ReadLine();
+        }
+
+        public Recipe? InputListIngridients(IIngridientStorage storage)
         {
             
             bool correctInput = true;

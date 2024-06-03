@@ -7,7 +7,7 @@ using Udemi_CookieCookbook.Model;
 
 namespace Udemi_CookieCookbook.WorkWithFiles
 {
-    internal class TextFile : IOperatingFile
+    public class TextFile : IOperatingFile
     {
         private string _fileName;
 
@@ -23,7 +23,7 @@ namespace Udemi_CookieCookbook.WorkWithFiles
             writefile.Close();
         }
 
-        public RecipeStorage ReadAll (string path, IngridientStorage ingStorage)
+        public RecipeStorage ReadAll (IIngridientStorage ingStorage)
         {
             IEnumerable<string> lines = File.ReadLines(_fileName);
             List<Recipe> recipeList = new List<Recipe>();
@@ -35,5 +35,11 @@ namespace Udemi_CookieCookbook.WorkWithFiles
             }
             return new RecipeStorage(recipeList);
         }
+
+        public bool Exist()
+        {
+            return File.Exists(_fileName);
+        }
+        
     }
 }
