@@ -6,8 +6,9 @@ const FileFormat CurrentFileFormat = FileFormat.Json; //could be txt or json
 
 var ingridientStorage = new IngridientStorage();
 
-string fileName = CurrentFileFormat == FileFormat.Txt ? $"{FileName}.txt" : $"{FileName}.json";
+string fileName = $"{FileName}.{CurrentFileFormat.AsFileExtension()}";
+var file = CurrentFileFormat.CreateNewFile(fileName);
 
-var cookiesRecipesApp = new CookiesRecipesApp(ingridientStorage, CurrentFileFormat == FileFormat.Txt ? new TextFile(fileName) : new JsonFile(fileName));
+var cookiesRecipesApp = new CookiesRecipesApp(ingridientStorage, file);
 cookiesRecipesApp.Run();
 
