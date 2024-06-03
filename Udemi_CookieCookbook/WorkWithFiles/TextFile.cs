@@ -1,45 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Udemi_CookieCookbook.Model;
+﻿using Udemi_CookieCookbook.Model;
 
 namespace Udemi_CookieCookbook.WorkWithFiles
 {
-    public class TextFile : IOperatingFile
+    public class TextFile : OperatingFilePattern
     {
-        private string _fileName;
+        private const string separator = ",";
 
-        public TextFile (string fileName)
+        public TextFile (string fileName, FileFormat fileFormat) : base (fileName, fileFormat)
         {
-            _fileName = fileName;
         }
 
-        public void Append(Recipe recipe)
+        public override string ConvertRecipeToStr(Recipe recipe)
         {
-            using StreamWriter writefile = File.AppendText(_fileName);
-            writefile.WriteLine(string.Join(",", recipe.IdList()));
-            writefile.Close();
+            return string.Join(separator, recipe.IdList());
         }
 
-        public RecipeStorage ReadAll (IIngridientStorage ingStorage)
+        public override string[] ConvertStrToIdList(string textLine)
         {
-            IEnumerable<string> lines = File.ReadLines(_fileName);
-            List<Recipe> recipeList = new List<Recipe>();
-            foreach (var line in lines)
-            {
-                var idList = line.Split(",");
-                List<Ingridient> listOfIngridients = idList.Select(id => ingStorage.FindIngridient(Convert.ToInt32(id))).ToList();
-                recipeList.Add(new Recipe(listOfIngridients));
-            }
-            return new RecipeStorage(recipeList);
+            return textLine.Split(separator);
         }
-
-        public bool Exist()
-        {
-            return File.Exists(_fileName);
-        }
-        
     }
 }
