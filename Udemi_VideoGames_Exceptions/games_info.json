@@ -1,0 +1,17 @@
+[
+  {
+    "Title": "Super Mario",
+    "ReleaseYear": 2000,
+    "Rating": 4.7
+  },
+  {
+    "Title": "Overcooked",
+    "ReleaseYear": 2001,
+    "Rating": 4.9
+  },
+  {
+    "Title": "Zelda",
+    "ReleaseYear": 2005,
+    "Rating": 4.85
+  }
+]
