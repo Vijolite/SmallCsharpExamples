@@ -21,7 +21,7 @@ namespace Udemi_VideoGames_Exceptions.UserInterface
                 switch (fileName) 
                 {
                     case null: 
-                        Console.WriteLine("File name cannot be null");
+                        Console.WriteLine("File name cannot be null"); //Ctrl + Z
                         break;
                     case "":
                         Console.WriteLine("File name cannot be empty");

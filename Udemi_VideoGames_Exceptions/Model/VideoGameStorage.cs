@@ -11,7 +11,9 @@
 
         public void Print()
         {
-            if (Items.Count > 0)
+            if (Items == null) Console.WriteLine("***** The file is empty *****");
+            else if (Items.Count == 0) Console.WriteLine("***** The file does not contain any record *****");
+            else
             {
                 Console.WriteLine("***** The list of our exciting video games: *****");
                 int i = 1;
@@ -21,7 +23,7 @@
                     item.Print();
                     i++;
                 }
-            }
+            };
             Console.WriteLine($"---------------");
         }
     }
