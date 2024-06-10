@@ -20,7 +20,8 @@
                 foreach (var item in Items)
                 {
                     Console.WriteLine($"----- {i} -----");
-                    item.Print();
+                    //item.Print();
+                    Console.WriteLine(item.ToString());
                     i++;
                 }
             };
