@@ -11,7 +11,7 @@ namespace Udemi_VideoGames_Exceptions.Model
             _fileName = fileName;
         }
 
-        public VideoGameStorage ReadAll()
+        public VideoGameStorage ReadAll(LogFile logFile)
         {
             string jsonString = File.ReadAllText(_fileName);
             try
@@ -21,14 +21,19 @@ namespace Udemi_VideoGames_Exceptions.Model
             }
             catch (JsonSerializationException ex)
             {
-                Console.WriteLine("File does not contain a valid Json: " + ex.Message);
-                throw;
+                var logInfoItem = new LogInfoItem("File does not contain a valid Json", ex.Message);
+                Console.WriteLine(logInfoItem.ToString());
+                logFile.Append(logInfoItem.ToString());
+                //throw;
             }
             catch (JsonReaderException ex)
             {
-                Console.WriteLine("File does not contain a valid Json: " + ex.Message);
-                throw;
+                var logInfoItem = new LogInfoItem("File does not contain a valid Json", ex.Message);
+                Console.WriteLine(logInfoItem.ToString());
+                logFile.Append(logInfoItem.ToString());
+                //throw;
             }
+            return null;
             
         }
 

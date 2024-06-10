@@ -19,11 +19,6 @@ namespace Udemi_VideoGames_Exceptions.Model
             Rating = rating;
         }
 
-        public void Print()
-        {
-             Console.WriteLine($"Game: {Title} Year: {ReleaseYear} Rating: {Rating}");
-        }
-
         public override string ToString()
         {
             return $"Game: {Title} Year: {ReleaseYear} Rating: {Rating}";
