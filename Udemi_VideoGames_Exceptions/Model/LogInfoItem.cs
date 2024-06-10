@@ -13,9 +13,16 @@
             Date = DateTime.Now;
         }
 
+        public LogInfoItem(string message)
+        {
+            Message = "";
+            ExceptionMessage = message;
+            Date = DateTime.Now;
+        }
+
         public override string ToString()
         {
-            return $"[{Date}] {Message} ({ExceptionMessage})";
+            return $"[{Date}] {Message} {ExceptionMessage}";
         }
     }
 }

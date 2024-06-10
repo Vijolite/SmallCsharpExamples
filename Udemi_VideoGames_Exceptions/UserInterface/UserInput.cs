@@ -13,7 +13,7 @@ namespace Udemi_VideoGames_Exceptions.UserInterface
         public static JsonFile TryGetFileFormUser()
         {
             bool correctInput = false;
-            JsonFile file = new JsonFile(String.Empty);
+            JsonFile file = default;
             do
             {
                 Console.WriteLine("Enter the name of the file you want to read");
@@ -36,5 +36,6 @@ namespace Udemi_VideoGames_Exceptions.UserInterface
 
             return file;
         }
+
     }
 }

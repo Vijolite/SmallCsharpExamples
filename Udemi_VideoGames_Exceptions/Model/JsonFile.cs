@@ -4,42 +4,31 @@ namespace Udemi_VideoGames_Exceptions.Model
 {
     public class JsonFile
     {
-        private string _fileName;
+        public string FileName { get; init; }
         
         public JsonFile (string fileName)
         {
-            _fileName = fileName;
+            FileName = fileName;
         }
 
-        public VideoGameStorage ReadAll(LogFile logFile)
+        public VideoGameStorage ReadAll()
         {
-            string jsonString = File.ReadAllText(_fileName);
+            string jsonString = File.ReadAllText(FileName);
             try
             {
                 var gameList = JsonConvert.DeserializeObject<List<VideoGame>>(jsonString);
                 return new VideoGameStorage(gameList);
             }
-            catch (JsonSerializationException ex)
+            catch (JsonException ex)
             {
-                var logInfoItem = new LogInfoItem("File does not contain a valid Json", ex.Message);
-                Console.WriteLine(logInfoItem.ToString());
-                logFile.Append(logInfoItem.ToString());
-                //throw;
+                throw new JsonException($"File {FileName} does not contain a valid Json ({ex.Message})");
             }
-            catch (JsonReaderException ex)
-            {
-                var logInfoItem = new LogInfoItem("File does not contain a valid Json", ex.Message);
-                Console.WriteLine(logInfoItem.ToString());
-                logFile.Append(logInfoItem.ToString());
-                //throw;
-            }
-            return null;
             
         }
 
         public bool Exist()
         {
-            return File.Exists(_fileName);
+            return File.Exists(FileName);
         }
 
     }
