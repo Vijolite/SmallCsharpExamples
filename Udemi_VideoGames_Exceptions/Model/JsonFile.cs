@@ -21,7 +21,7 @@ namespace Udemi_VideoGames_Exceptions.Model
             }
             catch (JsonException ex)
             {
-                throw new JsonException($"File {FileName} does not contain a valid Json ({ex.Message})");
+                throw new JsonException($@"File {FileName} does not contain a valid Json ({ex.Message})");
             }
             
         }
