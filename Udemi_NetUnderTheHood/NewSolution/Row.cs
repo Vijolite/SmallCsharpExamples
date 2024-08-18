@@ -1,6 +1,4 @@
-﻿//using Udemi_NetUnderTheHood.NewSolution;
-
-namespace CsvDataAccess.NewSolution;
+﻿namespace CsvDataAccess.NewSolution;
 
 public class Row
 {
