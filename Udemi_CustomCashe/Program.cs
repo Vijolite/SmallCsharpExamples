@@ -1,5 +1,5 @@
 ﻿IDataDownloader dataDownloader = new SlowDataDownloader();
-var cashDictionary = new CacheDict<object>();
+var cashDictionary = new CacheDict<string, object>();
 
 Console.WriteLine(dataDownloader.DownloadData("id1", cashDictionary));
 Console.WriteLine(dataDownloader.DownloadData("id2", cashDictionary));
@@ -13,12 +13,12 @@ Console.ReadKey();
 
 public interface IDataDownloader
 {
-    string DownloadData(string resourceId, CacheDict<object> casheDict);
+    string DownloadData(string resourceId, CacheDict<string, object> casheDict);
 }
 
 public class SlowDataDownloader : IDataDownloader
 {
-    public string DownloadData(string resourceId, CacheDict<object> casheDict)
+    public string DownloadData(string resourceId, CacheDict<string, object> casheDict)
     {
         var downloadedUnit = new object();
         if (!casheDict.IsInside(resourceId))
@@ -51,25 +51,25 @@ public class CasheDataUnit <T>
     
 }
 
-public class CacheDict <T>
+public class CacheDict <TKey, TValue>
 {
-    public Dictionary<string, T> Data { get; set; }
+    public Dictionary<TKey, TValue> Data { get; set; }
 
     public CacheDict()
     {
-        Data = new Dictionary<string, T>();
+        Data = new Dictionary<TKey, TValue>();
     }
-    public bool IsInside (string id)
+    public bool IsInside (TKey id)
     {
         return Data.ContainsKey(id);
     }
 
-    public T GetById (string id)
+    public TValue GetById (TKey id)
     {
         return Data[id];
     }
 
-    public void AddToDict (string id, T value)
+    public void AddToDict (TKey id, TValue value)
     {
         Data[id] = value;
     }
