@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_CookieCookbook", "Ude
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_VideoGames_Exceptions", "Udemi_VideoGames_Exceptions\Udemi_VideoGames_Exceptions.csproj", "{BAAB2D14-96D6-4A6B-B797-3EB8E7A7A047}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemi_NetUnderTheHood", "Udemi_NetUnderTheHood\Udemi_NetUnderTheHood.csproj", "{0BF0E7B6-78D5-43AF-B16F-F18D3DF9A844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_NetUnderTheHood", "Udemi_NetUnderTheHood\Udemi_NetUnderTheHood.csproj", "{0BF0E7B6-78D5-43AF-B16F-F18D3DF9A844}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemi_CustomCashe", "Udemi_CustomCashe\Udemi_CustomCashe.csproj", "{0D1C1654-EE5B-43C7-9E13-0BDE21319158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_CustomCashe", "Udemi_CustomCashe\Udemi_CustomCashe.csproj", "{0D1C1654-EE5B-43C7-9E13-0BDE21319158}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemi_StarWarsPlanetStats", "Udemi_StarWarsPlanetStats\Udemi_StarWarsPlanetStats.csproj", "{A664F534-BEAB-46E1-A957-3D04C073E9FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{0D1C1654-EE5B-43C7-9E13-0BDE21319158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D1C1654-EE5B-43C7-9E13-0BDE21319158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D1C1654-EE5B-43C7-9E13-0BDE21319158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A664F534-BEAB-46E1-A957-3D04C073E9FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A664F534-BEAB-46E1-A957-3D04C073E9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A664F534-BEAB-46E1-A957-3D04C073E9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A664F534-BEAB-46E1-A957-3D04C073E9FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

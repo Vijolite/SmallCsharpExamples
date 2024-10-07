@@ -1,6 +1,6 @@
 ﻿//IDataDownloader DataDownloader = new SlowDataDownloader(); //to use old slow download way
 //IDataDownloader dataDownloader = new CashingDataDownloader(new SlowDataDownloader()); //to use new download way with chashing
-IDataDownloader dataDownloader = new PrintingDataDownloader(new CashingDataDownloader(new SlowDataDownloader()));
+IDataDownloader dataDownloader = new PrintingDataDownloader(new CashingDataDownloader(new SlowDataDownloader())); //using of 2 decorators
 
 Console.WriteLine(dataDownloader.DownloadData("id1"));
 Console.WriteLine(dataDownloader.DownloadData("id2"));
