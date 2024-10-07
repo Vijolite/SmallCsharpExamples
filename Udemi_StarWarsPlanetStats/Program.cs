@@ -1,4 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Dynamic;
+using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Text.Json;
 
@@ -17,51 +18,61 @@ var root = JsonSerializer.Deserialize<Root>(json);
 
 foreach (var item in root.results)
 {
-    Console.WriteLine($"Planet = {item.name} Population = {item.population } creatures Diameter = {item.diameter} Surface = {item.surface_water}");
+    Console.WriteLine($"Planet = {item.name} Population = {item.population }  Diameter = {item.diameter} SurfaceWater = {item.surface_water}");
 }
+
+var tablePrinter = new TablePrinter(MyConverter<Result>.ConvertToObjectList(root.results));
+var columnNames = tablePrinter.GetColumnNames();
+
+foreach (var cN in columnNames)
+{
+    Console.WriteLine(cN);
+}
+
+
 Console.ReadKey();
 
-public interface IApiDataReader
-{
-    Task<string> Read(string baseAddress, string requestUri);
-}
 
-public class ApiDataReader : IApiDataReader
+public class TablePrinter
 {
-    public async Task<string> Read(string baseAddress, string requestUri)
+    public List<object> Items { get; set; }
+
+    public TablePrinter (List<object> items)
     {
-        using var client = new HttpClient();
-        client.BaseAddress = new Uri(baseAddress);
-        var response = await client.GetAsync(requestUri);
+        Items = items;
+    }
 
-        response.EnsureSuccessStatusCode(); //through exception if getting data from api is not possible
+/*    public void Print ()
+    {
+        string topLine = "";
+        foreach (var columnName in ColumnNames)
+        {
+            topLine += $"{0,10} {columnName}";
+        }
+        Console.WriteLine(topLine);
+    }*/
 
-        return await response.Content.ReadAsStringAsync();
+    public List<string> GetColumnNames()
+    {
+        List<string> columnNames = new List<string>();
+        foreach (var property in Items[0].GetType().GetProperties())
+        {
+            columnNames.Add(property.Name);
+        }
+        return columnNames;
     }
 }
 
-public class Result
+public static class MyConverter <T>
 {
-    public string name { get; set; }
-    public string rotation_period { get; set; }
-    public string orbital_period { get; set; }
-    public string diameter { get; set; }
-    public string climate { get; set; }
-    public string gravity { get; set; }
-    public string terrain { get; set; }
-    public string surface_water { get; set; }
-    public string population { get; set; }
-    public List<string> residents { get; set; }
-    public List<string> films { get; set; }
-    public DateTime created { get; set; }
-    public DateTime edited { get; set; }
-    public string url { get; set; }
-}
+    public static System.Collections.Generic.List<object> ConvertToObjectList (List<T> listToConvert)
+    {
+        var objectList = new List<object>();
+        foreach (var item in listToConvert)
+        {
+            objectList.Add(item);
+        }
+        return objectList;
 
-public class Root
-{
-    public int count { get; set; }
-    public string next { get; set; }
-    public object previous { get; set; }
-    public List<Result> results { get; set; }
+    }
 }
