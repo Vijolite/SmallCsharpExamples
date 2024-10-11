@@ -10,7 +10,7 @@
     public Tuple<long,T> FinMaxInColumn (string columnName)
     {
         var listOfValues = new List<int>();
-        long maxValue = 0;
+        long maxValue = -1;
         T itemWithMaxValue = default(T);
         foreach (var item in Items)
         {

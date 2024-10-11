@@ -2,7 +2,7 @@
 {
     public static class UserChoice
     {
-        private static readonly string[] _rightChoices = { "population", "diameter", "surface water" };
+        private static readonly string[] _rightChoices = { "population", "diameter", "surfacewater" };
 
         private static readonly string _choices = string.Join("\n", _rightChoices.ToList());
 

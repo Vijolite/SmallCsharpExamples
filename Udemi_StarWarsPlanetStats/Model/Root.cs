@@ -11,6 +11,11 @@
         {
             return results.Select(item => new Planet(item)).ToList();
         }
+
+        public List<PlanetWithResidents> ExtractWithResidents()
+        {
+            return results.Select(item => new PlanetWithResidents(item)).ToList();
+        }
     }
 }
 
