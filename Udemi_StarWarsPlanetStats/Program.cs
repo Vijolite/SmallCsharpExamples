@@ -1,7 +1,6 @@
-﻿using System.Dynamic;
-using System.Reflection;
-using System.Runtime.ExceptionServices;
-using System.Text.Json;
+﻿using System.Text.Json;
+using Udemi_StarWarsPlanetStats.Model;
+using Udemi_StarWarsPlanetStats.UserInputOutput;
 
 
 // https://swapi.dev/api/planets - SWAPI endpoint for getting the collection of planets
@@ -16,63 +15,15 @@ var json = await apiDataReader.Read(baseAddress, requestUri);
 
 var root = JsonSerializer.Deserialize<Root>(json);
 
-foreach (var item in root.results)
-{
-    Console.WriteLine($"Planet = {item.name} Population = {item.population }  Diameter = {item.diameter} SurfaceWater = {item.surface_water}");
-}
+var planets = root.Extract();
 
-var tablePrinter = new TablePrinter(MyConverter<Result>.ConvertToObjectList(root.results));
-var columnNames = tablePrinter.GetColumnNames();
+var tablePrinter = new TablePrinter<Planet>(planets);
+tablePrinter.Print();
 
-foreach (var cN in columnNames)
-{
-    Console.WriteLine(cN);
-}
-
+var tableCalculator = new TableCalculator<Planet>(planets);
+var userChoice = UserChoice.GetChoise();
+Tuple<long, Planet> result = tableCalculator.FinMaxInColumn(userChoice);
+Console.WriteLine(result.Item1);
 
 Console.ReadKey();
 
-
-public class TablePrinter
-{
-    public List<object> Items { get; set; }
-
-    public TablePrinter (List<object> items)
-    {
-        Items = items;
-    }
-
-/*    public void Print ()
-    {
-        string topLine = "";
-        foreach (var columnName in ColumnNames)
-        {
-            topLine += $"{0,10} {columnName}";
-        }
-        Console.WriteLine(topLine);
-    }*/
-
-    public List<string> GetColumnNames()
-    {
-        List<string> columnNames = new List<string>();
-        foreach (var property in Items[0].GetType().GetProperties())
-        {
-            columnNames.Add(property.Name);
-        }
-        return columnNames;
-    }
-}
-
-public static class MyConverter <T>
-{
-    public static System.Collections.Generic.List<object> ConvertToObjectList (List<T> listToConvert)
-    {
-        var objectList = new List<object>();
-        foreach (var item in listToConvert)
-        {
-            objectList.Add(item);
-        }
-        return objectList;
-
-    }
-}
