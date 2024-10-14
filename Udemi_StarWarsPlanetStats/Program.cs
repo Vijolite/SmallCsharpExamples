@@ -11,7 +11,6 @@ var requestUri = "planets";
 
 IApiDataReader apiDataReader = new ApiDataReader();
 var json = await apiDataReader.Read(baseAddress, requestUri);
-
 var root = JsonSerializer.Deserialize<Root>(json);
 
 var planets = root.Extract();
