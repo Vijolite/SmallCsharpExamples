@@ -14,9 +14,9 @@ namespace Udemi_StarWarsPlanetStats.Dto
             return results.Select(item => new Planet(item)).ToList();
         }
 
-        public List<PlanetWithResidents> ExtractWithResidents()
+        public List<PlanetWithResidents> ExtractWithResidents(IApiDataReader apiDataReader)
         {
-            return results.Select(item => new PlanetWithResidents(item)).ToList();
+            return results.Select(item => new PlanetWithResidents(item, apiDataReader)).ToList();
         }
     }
 }
