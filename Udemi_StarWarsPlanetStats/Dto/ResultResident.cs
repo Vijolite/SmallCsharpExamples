@@ -1,4 +1,4 @@
-﻿namespace Udemi_StarWarsPlanetStats.Model
+﻿namespace Udemi_StarWarsPlanetStats.Dto
 {
     public class ResultResident
     {

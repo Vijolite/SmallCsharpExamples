@@ -1,4 +1,6 @@
-﻿namespace Udemi_StarWarsPlanetStats.Model
+﻿using Udemi_StarWarsPlanetStats.Model;
+
+namespace Udemi_StarWarsPlanetStats.Dto
 {
     public class Root
     {

@@ -1,4 +1,6 @@
-﻿namespace Udemi_StarWarsPlanetStats.Model
+﻿using Udemi_StarWarsPlanetStats.Dto;
+
+namespace Udemi_StarWarsPlanetStats.Model
 {
     public class Resident
     {

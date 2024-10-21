@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using Udemi_StarWarsPlanetStats.Dto;
 
 namespace Udemi_StarWarsPlanetStats.Model
 {
