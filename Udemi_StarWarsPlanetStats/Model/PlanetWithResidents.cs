@@ -3,23 +3,16 @@ using Udemi_StarWarsPlanetStats.Dto;
 
 namespace Udemi_StarWarsPlanetStats.Model
 {
-    public class PlanetWithResidents
+    public class PlanetWithResidents : Planet
     {
         private const string baseAddress = "swapi.dev/api/";
 
         private static IApiDataReader _apiDataReader;
-        public string Name { get; set; }
-        public string Diameter { get; set; }
-        public string SurfaceWater { get; set; }
-        public string Population { get; set; }
+
         public List<Resident> Residents { get; set; }
 
-        public PlanetWithResidents(Result result, IApiDataReader apiDataReader)
-        {
-            Name = result.name;
-            Diameter = result.diameter;
-            SurfaceWater = result.surface_water;
-            Population = result.population;
+        public PlanetWithResidents(Result result, IApiDataReader apiDataReader) : base (result)
+        {;
             _apiDataReader = apiDataReader;
             Residents = Extract(result.residents).GetAwaiter().GetResult();
         }
