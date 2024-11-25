@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_NetUnderTheHood", "Ud
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_CustomCashe", "Udemi_CustomCashe\Udemi_CustomCashe.csproj", "{0D1C1654-EE5B-43C7-9E13-0BDE21319158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemi_StarWarsPlanetStats", "Udemi_StarWarsPlanetStats\Udemi_StarWarsPlanetStats.csproj", "{A664F534-BEAB-46E1-A957-3D04C073E9FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemi_StarWarsPlanetStats", "Udemi_StarWarsPlanetStats\Udemi_StarWarsPlanetStats.csproj", "{A664F534-BEAB-46E1-A957-3D04C073E9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemi_CustomLinkedList", "Udemi_CustomLinkedList\Udemi_CustomLinkedList.csproj", "{005D598A-B5A8-4D52-BCE7-FE53B7C58937}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{A664F534-BEAB-46E1-A957-3D04C073E9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A664F534-BEAB-46E1-A957-3D04C073E9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A664F534-BEAB-46E1-A957-3D04C073E9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005D598A-B5A8-4D52-BCE7-FE53B7C58937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005D598A-B5A8-4D52-BCE7-FE53B7C58937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005D598A-B5A8-4D52-BCE7-FE53B7C58937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005D598A-B5A8-4D52-BCE7-FE53B7C58937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

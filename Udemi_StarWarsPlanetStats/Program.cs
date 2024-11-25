@@ -8,7 +8,7 @@ using Udemi_StarWarsPlanetStats.UserInputOutput;
 // https://swapi.dev/api/planets - SWAPI endpoint for getting the collection of planets
 // https://swapi.dev/documentation#planets - description of planets data from the SWAPI documentation
 
-var baseAddress = "https://swapi33.dev/api/";
+var baseAddress = "https://swapi.dev/api/";
 var requestUri = "planets";
 var json = "";
 IApiDataReader _apiDataReader;
