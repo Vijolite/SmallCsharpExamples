@@ -10,13 +10,11 @@ namespace Udemi_TicketsDataAggregate_FromPDF.Model
         public string Time { get; set; }
         public string Country { get; set; }
 
-        public TicketAsTxt (string ticketData, string country)
+        public TicketAsTxt(string title, string date, string time, string country)
         {
-            var titleAndDatetime = ticketData.Split("Date:");
-            Title = titleAndDatetime[0];
-            var dateAndTime = titleAndDatetime[1].Split("Time:");
-            Date = dateAndTime[0];
-            Time = dateAndTime[1];
+            Title = title;
+            Date = date;
+            Time = time;
             Country = country;
         }
 

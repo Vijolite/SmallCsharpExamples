@@ -37,18 +37,14 @@ namespace Udemi_TicketsDataAggregate_FromPDF.Model
         public List<Ticket> ExtractTicketsData (string text)
         {
             var tickets = new List<Ticket>();
-            var indexOfFirstTitle = text.IndexOf("Title:");
-            var indexOfVisitUs = text.IndexOf("Visit us:");
-            var UrlData = text.Substring(indexOfVisitUs);
+            var listOfItems = text.Split(new[] { "Title:", "Date:", "Time:" , "Visit us:"}, StringSplitOptions.None);
+            //0th - non relevant text; tickets data are from 1st till lenght-2 position; last position - url including country
+            var UrlData = listOfItems[listOfItems.Length - 1];
             var UrlDataSeparated = UrlData.Split(".");
             var country = UrlDataSeparated[UrlDataSeparated.Length - 1];
-            var ticketsData = text.Substring(indexOfFirstTitle, indexOfVisitUs - indexOfFirstTitle);
-            //take away first Title: (6 chars)
-            ticketsData = ticketsData.Substring(6);
-            string[] ticketsSeparate = ticketsData.Split("Title:");
-            foreach (var ticket in ticketsSeparate)
+            for (int i = 1; i < listOfItems.Count()-2; i+=3)
             {
-                var ticketAsText = new TicketAsTxt(ticket, country);
+                var ticketAsText = new TicketAsTxt(listOfItems[i], listOfItems[i + 1], listOfItems[i + 2], country);
                 var t = ticketAsText.Convert();
                 tickets.Add(t);
             }

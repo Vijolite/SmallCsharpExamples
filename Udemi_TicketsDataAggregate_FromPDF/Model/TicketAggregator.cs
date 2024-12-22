@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Udemi_TicketsDataAggregate_FromPDF.Model
+﻿namespace Udemi_TicketsDataAggregate_FromPDF.Model
 {
     internal class TicketAggregator
     {
