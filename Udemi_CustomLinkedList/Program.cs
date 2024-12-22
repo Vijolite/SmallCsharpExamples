@@ -12,28 +12,13 @@ Console.WriteLine(sll.Contains("aaa"));
 Console.WriteLine(sll.Contains("zzz"));
 var arr = new string[] {"!","£","$","%","&","*","(",")","-","_","+","="};
 Console.WriteLine(string.Join("", arr));
-sll.CopyTo(arr, 3);
+sll.CopyTo(arr, 2);
 Console.WriteLine(string.Join("", arr));
 Console.WriteLine(sll.Remove("ddd"));
 sll.PrintWholeList();
 foreach (var item in sll) Console.WriteLine(item);
-
-
-public class Node<T>
-{
-    public T? Value { get; set; }
-
-    public Node<T>? Next { get; set; }
-
-    public Node (T? value)
-    {
-        Value = value;
-    }
-
-    public override string ToString() =>
-        $"Value: {Value}, " +
-        $"Next: {(Next is null ? "null" : Next.Value)} ";
-}
+sll.Clear();
+sll.PrintWholeList();
 
 public interface ILinkedList<T> : ICollection <T>
 {
@@ -43,7 +28,23 @@ public interface ILinkedList<T> : ICollection <T>
 
 public class SiglyLinkedList<T> : ILinkedList<T?>
 {
-    private Node<T>? _head;
+    private class Node
+    {
+        public T? Value { get; set; }
+
+        public Node? Next { get; set; }
+
+        public Node(T? value)
+        {
+            Value = value;
+        }
+
+        public override string ToString() =>
+            $"Value: {Value}, " +
+            $"Next: {(Next is null ? "null" : Next.Value)} ";
+    }
+
+    private Node? _head;
 
     private int _count;
 
@@ -64,19 +65,15 @@ public class SiglyLinkedList<T> : ILinkedList<T?>
 
     public void AddToEnd(T? item)
     {
-        var node = new Node<T> (item);
-        if (_head == null)
+        var node = new Node (item);
+        if (_head is null)
         {
             _head = node;
         }
         else 
         {
-            var index = _head;
-            while (index.Next != null)
-            {
-                index = index.Next;
-            };
-            index.Next = node;
+            var tail = GetNodes().Last();
+            tail.Next = node;
 
         }
         _count += 1;
@@ -84,7 +81,7 @@ public class SiglyLinkedList<T> : ILinkedList<T?>
 
     public void AddToFront(T? item)
     {
-        var node = new Node<T>(item);
+        var node = new Node(item);
         node.Next = _head;
         _head = node;
         _count += 1;
@@ -92,37 +89,34 @@ public class SiglyLinkedList<T> : ILinkedList<T?>
 
     public void Clear()
     {
-        throw new NotImplementedException();
+        var current = _head;
+        while (current is not null)
+        {
+            var temp = current;
+            current = current.Next;
+            temp = null;
+        }
+        _head = null;
+        _count = 0;
     }
 
     public bool Contains(T? item)
     {
-        var index = _head;
-        while (index != null)
-        {
-            if (index.Value!.Equals(item)) return true;
-            index = index.Next;
-        }
-        return false;
+        if (item is null) return GetNodes().Any(node => node.Value is null);
+        return GetNodes().Any(node => node.Value!.Equals(item));
     }
 
     public void CopyTo(T?[] array, int arrayIndex)
     {
-        try
-        {
-            var item = _head;
-            for (int i = arrayIndex; i < arrayIndex+_count; i++)
-            {
-                array[i] = item!.Value;
-                item = item!.Next;
-            }
+        if (array is null) throw new ArgumentNullException(nameof(array));
+        if (arrayIndex < 0 || arrayIndex>= array.Length) throw new ArgumentOutOfRangeException(nameof(arrayIndex));
+        if (array.Length < _count + arrayIndex) throw new ArgumentException("Array is not long enough");
 
-        }
-        catch (Exception e)
+        var item = _head;
+        for (int i = arrayIndex; i < arrayIndex+_count; i++)
         {
-            Console.WriteLine(e.Message);
-            Console.WriteLine(e);
-            throw e;
+            array[i] = item!.Value;
+            item = item!.Next;
         }
         
     }
@@ -132,7 +126,9 @@ public class SiglyLinkedList<T> : ILinkedList<T?>
         if (_head == null) return false;
         if (_head!.Value!.Equals(item))
         {
+            var temp = _head;
             _head = _head.Next;
+            temp = null;
             _count -= 1;
             return true;
         }
@@ -146,12 +142,13 @@ public class SiglyLinkedList<T> : ILinkedList<T?>
         if (nodeBeforeOneToDelete.Next == null) return false;
         else
         {
+            var temp = nodeBeforeOneToDelete.Next;
             nodeBeforeOneToDelete.Next = nodeBeforeOneToDelete.Next.Next;
+            temp = null;
             _count -= 1;
             return true;
 
         }
-
     }
 
     public IEnumerator<T?> GetEnumerator()
@@ -167,10 +164,10 @@ public class SiglyLinkedList<T> : ILinkedList<T?>
         return GetEnumerator();
     }
 
-    private IEnumerable<Node<T>> GetNodes()
+    private IEnumerable<Node> GetNodes()
     {
         if (_head is null) yield break;
-        Node<T> node = _head;
+        Node node = _head;
         while (node is not null)
         {
             yield return node;
@@ -180,11 +177,12 @@ public class SiglyLinkedList<T> : ILinkedList<T?>
 
     public void PrintWholeList()
     {
-        var index = _head;
-        while (index != null)
+        var current = _head;
+        if (current is null) Console.WriteLine("List is empty - nothing to print!");
+        while (current != null)
         {
-            Console.WriteLine(index.ToString());
-            index = index.Next;
+            Console.WriteLine(current.ToString());
+            current = current.Next;
         }
     }
 
