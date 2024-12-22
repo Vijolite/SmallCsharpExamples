@@ -1,20 +1,11 @@
 ﻿using Udemi_TicketsDataAggregate_FromPDF.Model;
 
-//string path = "C:\\PROGRAMMING\\C_Sharp_TechReturners\\SmallCsharpExamples\\Udemi_TicketsDataAggregate_FromPDF\\Tickets";
-string path = "Tickets";
-var ticketFolder = new Folder(path);
-var pdfFilesNames = ticketFolder.GetPdfFiles();
-var tickets = new List<Ticket>();
-foreach (var fileName in pdfFilesNames)
+try
 {
-    var pdfFile = new PdfFile(fileName);
-    var ticketsFromOneFile = pdfFile.ReadWholeFile();
-    tickets.AddRange(ticketsFromOneFile);
+    var ticketAggregator = new TicketAggregator();
+    ticketAggregator.Run();
 }
-Console.WriteLine("***");
-foreach (var t in tickets)
+catch (Exception ex)
 {
-    t.Print();
+    Console.WriteLine("An exception occured ", ex.Message);
 }
-var txtFile = new TxtFile("tickets.txt", path);
-txtFile.WriteTickets(tickets);

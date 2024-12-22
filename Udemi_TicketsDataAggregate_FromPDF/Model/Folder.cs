@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace Udemi_TicketsDataAggregate_FromPDF.Model
+﻿namespace Udemi_TicketsDataAggregate_FromPDF.Model
 {
     internal class Folder
     {
@@ -19,13 +16,6 @@ namespace Udemi_TicketsDataAggregate_FromPDF.Model
                 // Only get pdf files
                 string[] files = Directory.GetFiles(Path, "*pdf");
                 Console.WriteLine("The number of PDF files is {0}.", files.Length);
-/*                foreach (string file in files)
-                {
-                    Console.WriteLine(file);
-                    var pdfFile = new PdfFile(file);
-                    pdfFile.ReadWholeFile();
-                    //convert file into TicketFile ???
-                };*/
                 return files;
             }
             catch (Exception e)
