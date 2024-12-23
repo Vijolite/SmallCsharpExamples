@@ -21,8 +21,6 @@ namespace Udemi_TicketsDataAggregate_FromPDF.Model
                 {
                     string pageText = page.Text;
 
-                    //Console.WriteLine(pageText);
-
                     tickets.AddRange(ExtractTicketsData(pageText));
 
 /*                    foreach (Word word in page.GetWords())
@@ -38,17 +36,23 @@ namespace Udemi_TicketsDataAggregate_FromPDF.Model
         {
             var tickets = new List<Ticket>();
             var listOfItems = text.Split(new[] { "Title:", "Date:", "Time:" , "Visit us:"}, StringSplitOptions.None);
-            //0th - non relevant text; tickets data are from 1st till lenght-2 position; last position - url including country
-            var UrlData = listOfItems[listOfItems.Length - 1];
-            var UrlDataSeparated = UrlData.Split(".");
-            var country = UrlDataSeparated[UrlDataSeparated.Length - 1];
+            //0th - non relevant text; tickets data are from 1st till lenght-2 position; last position - url including domain
+            var urlData = listOfItems[listOfItems.Length - 1];
+            var domain = ExtractDomain(urlData);
             for (int i = 1; i < listOfItems.Count()-2; i+=3)
             {
-                var ticketAsText = new TicketAsTxt(listOfItems[i], listOfItems[i + 1], listOfItems[i + 2], country);
+                var ticketAsText = new TicketAsTxt(listOfItems[i], listOfItems[i + 1], listOfItems[i + 2], domain);
                 var t = ticketAsText.Convert();
                 tickets.Add(t);
             }
             return tickets;
+        }
+
+        private string ExtractDomain (string url)
+        {
+            var dotIndex = url.LastIndexOf(".");
+            var domain = url.Substring(dotIndex+1);
+            return domain;
         }
     }
 }
