@@ -6,26 +6,25 @@
 
         public void Run()
         {
-            var ticketFolder = new Folder(Path);
-            var pdfFilesNames = ticketFolder.GetPdfFiles();
+            var ticketFolder = new FolderReader();
+            var textDataFromPdfFiles = ticketFolder.Read(Path);
 
-            var tickets = new List<Ticket>();
+            var tickets = textDataFromPdfFiles.ExtractTicketsData();
 
-            foreach (var fileName in pdfFilesNames)
-            {
-                var pdfFile = new PdfFile(fileName);
-                var ticketsFromOneFile = pdfFile.ReadWholeFile();
-                tickets.AddRange(ticketsFromOneFile);
-            }
+            PrintAllTicketsToScreen(tickets);
 
+            var txtFile = new TxtFile("tickets.txt", Path);
+            txtFile.WriteTickets(tickets);
+        }
+
+
+        public static void PrintAllTicketsToScreen (List<Ticket> tickets)
+        {
             Console.WriteLine("***");
             foreach (var t in tickets)
             {
                 t.Print();
             }
-
-            var txtFile = new TxtFile("tickets.txt", Path);
-            txtFile.WriteTickets(tickets);
         }
     }
 }

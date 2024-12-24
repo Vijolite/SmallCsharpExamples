@@ -14,7 +14,6 @@
         public void WriteTickets (List<Ticket> tickets)
         {
             string fullPath = Folder + FileName;
-            // An array of strings
             var ticketsAsStrings = tickets.Select(t => t.ToString());
             File.WriteAllLines(fullPath, ticketsAsStrings);
         }
