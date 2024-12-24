@@ -1,7 +1,7 @@
 ﻿using UglyToad.PdfPig.Content;
 using UglyToad.PdfPig;
 
-namespace Udemi_TicketsDataAggregate_FromPDF.Model
+namespace Udemi_TicketsDataAggregate_FromPDF.WorkWithFiles
 {
     internal class FolderReader : IDocumentReader
     {
@@ -23,7 +23,7 @@ namespace Udemi_TicketsDataAggregate_FromPDF.Model
 
         public IEnumerable<string> Read(string folderName)
         {
-            var allPdfFilesNames = this.GetPdfFiles(folderName);
+            var allPdfFilesNames = GetPdfFiles(folderName);
 
             foreach (var fileName in allPdfFilesNames)
             {

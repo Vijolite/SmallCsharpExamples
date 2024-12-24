@@ -1,4 +1,7 @@
-﻿namespace Udemi_TicketsDataAggregate_FromPDF.Model
+﻿using Udemi_TicketsDataAggregate_FromPDF.Extensions;
+using Udemi_TicketsDataAggregate_FromPDF.WorkWithFiles;
+
+namespace Udemi_TicketsDataAggregate_FromPDF.Model
 {
     internal class TicketAggregator
     {

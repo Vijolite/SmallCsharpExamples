@@ -1,4 +1,4 @@
-﻿namespace Udemi_TicketsDataAggregate_FromPDF.Model
+﻿namespace Udemi_TicketsDataAggregate_FromPDF.Extensions
 {
     public static class WebAddressExtensions
     {
