@@ -93,25 +93,25 @@
             // 
             this.textBoxMinValue.Location = new System.Drawing.Point(225, 58);
             this.textBoxMinValue.Name = "textBoxMinValue";
-            this.textBoxMinValue.Size = new System.Drawing.Size(150, 31);
+            this.textBoxMinValue.Size = new System.Drawing.Size(397, 31);
             this.textBoxMinValue.TabIndex = 5;
             this.textBoxMinValue.TextChanged += new System.EventHandler(this.SuggestedTypeCalculation);
-            this.textBoxMinValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMinValue_KeyPress);
+            this.textBoxMinValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // textBoxMaxValue
             // 
             this.textBoxMaxValue.Location = new System.Drawing.Point(225, 113);
             this.textBoxMaxValue.Name = "textBoxMaxValue";
-            this.textBoxMaxValue.Size = new System.Drawing.Size(150, 31);
+            this.textBoxMaxValue.Size = new System.Drawing.Size(397, 31);
             this.textBoxMaxValue.TabIndex = 6;
             this.textBoxMaxValue.TextChanged += new System.EventHandler(this.SuggestedTypeCalculation);
-            this.textBoxMaxValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMaxValue_KeyPress);
+            this.textBoxMaxValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 450);
+            this.ClientSize = new System.Drawing.Size(691, 450);
             this.Controls.Add(this.textBoxMaxValue);
             this.Controls.Add(this.textBoxMinValue);
             this.Controls.Add(this.labelSuggestedType);

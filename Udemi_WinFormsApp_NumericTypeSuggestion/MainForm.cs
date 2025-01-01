@@ -17,22 +17,15 @@ namespace Udemi_WinFormsApp_NumericTypeSuggestion
             SuggestedTypeCalculation(sender,e);
         }
 
-        private bool IsValid(char keyChar, object sender)
+        private bool IsValid(char keyChar, TextBox textBox)
         {
-            return char.IsDigit(keyChar) || char.IsControl(keyChar) || (keyChar == '-');
+            return char.IsDigit(keyChar) || char.IsControl(keyChar) || (keyChar == '-' && textBox.SelectionStart == 0); //Number of cursor position
         }
 
-        private void textBoxMinValue_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!IsValid(e.KeyChar, sender))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void textBoxMaxValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!IsValid(e.KeyChar, sender))
+            var textBox = (TextBox)sender; // cast sender into the object we need
+            if (!IsValid(e.KeyChar, textBox))
             {
                 e.Handled = true;
             }
